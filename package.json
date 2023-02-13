@@ -11,7 +11,7 @@
     "demo:build": "ng build demo",
     "aui:build": "ng build awesome-ui-lib --watch",
     "carousel:start": "ng serve card-carousel",
-    "carousel:build": "ng build card-carousel --output-path ../carousel-app --base-href /card-carousel"
+    "carousel:build": "ng build card-carousel --output-path docs --base-href /card-carousel"
   },
   "private": true,
   "dependencies": {
