@@ -1,0 +1,108 @@
+$text-color: #232323;
+$v-offset: 6px;
+
+@mixin hover-effect {
+    background-image: linear-gradient(#373536, #191718);
+    color: #fff;
+
+    button {
+        color: #fff;
+    }
+}
+
+:host {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }    
+
+    display: flex;
+    flex-shrink: 0;
+    flex-grow: 0;
+    color: $text-color;
+    box-shadow: 0px 0px 10px $text-color;
+    border-radius: 10px;
+    height: 100%;
+
+    &.active {
+        .card {
+            box-shadow: 0 $v-offset #fdc100;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: calc(100% - $v-offset);
+                width: 100%;
+                height: calc($v-offset * 2);
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0px 0px 10px $text-color;
+                z-index: -1;
+            }
+
+            .card__title {
+                font-weight: bold;
+            }
+        }
+
+        &.hover {
+            .card {
+                &:hover {
+                    @include hover-effect;
+                }
+            }
+        }
+    }
+
+    .card {
+        display: flex;
+        position: relative;
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-image: linear-gradient(#fbfbfb, #e7e7e7);
+        border-radius: 10px;
+        padding: 3rem 0;
+
+        &.hover:hover {
+            @include hover-effect;
+        }
+
+        .card__icon {            
+            img {
+                width: 7rem;
+                height: 7rem;
+            }
+        }
+
+        .card__title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            font-size: 1.5rem;
+            text-align: center;
+            width: 145px;
+            height: 55px;
+        }
+
+        .card__actions {
+            button {
+                font-weight: bold;
+                font-size: 0.6rem;
+                border: none;
+                background-color: transparent;
+                text-transform: uppercase;
+                cursor: pointer;
+
+                svg {
+                    width: .45rem;
+                    height: .45rem;
+                    
+                    path {
+                        font-weight: bolder;
+                    }
+                }
+            }
+        }
+    }
+}

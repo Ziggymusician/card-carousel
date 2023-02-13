@@ -1,0 +1,33 @@
+<div class="carousel">
+    <ng-container *ngIf="cards.length == 3 || cards.length >= 5; else notEnoughCards">
+        <div class="carousel__buttons">
+            <button class="carousel__btn prev" (click)="onChangeCard(false)">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="carousel__btn next" (click)="onChangeCard(true)">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+        </div>
+        
+        <ul class="carousel__cards">
+            <ng-container *ngFor="let card of cards; let i = index; trackBy: trackById">
+                <li class="carousel__card" *ngIf="i < 5" [ngClass]="{ active: activeIndex === i }">
+                    <div *ngIf="cards.length == 3 ? i === 0 : i == 1" class="carousel__tag">
+                        <p>What are you <b>here to do?</b></p>
+                    </div>
+                    <aui-card
+                        [icon]="card.icon"
+                        [title]="card.title"
+                        [isActive]="activeIndex === i"
+                        [isHoverOnlyActive]="true"
+                    ></aui-card>
+                </li>
+            </ng-container>
+        </ul>
+    </ng-container>
+    <ng-template #notEnoughCards>
+        <div class="not-enough-cards">
+            Sorry but there are not enough cards to render... minimum of <b>3 cards</b> are required to render Carousel.
+        </div>
+    </ng-template>
+</div>
