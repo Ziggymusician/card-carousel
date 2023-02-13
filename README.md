@@ -8,4 +8,4 @@ Run `npm run carousel:start` for a dev server. Navigate to `http://localhost:420
 
 ## Build
 
-Run `run carousel:build` to build the app (to be deployed to GitHub). The build artifacts will be stored in the `carousel-app/` directory.
+Run `run carousel:build` to build the app (to be deployed to GitHub). The build artifacts will be stored in the `docs/` directory.
