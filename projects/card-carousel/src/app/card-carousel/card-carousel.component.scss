@@ -40,7 +40,8 @@ $tablet-card-height: 325px;
             }
 
             @media (max-width: 1024px) and (max-height: 768px) {
-                top: 5%;
+                font-size: 30px;
+                top: 10%;
                 margin-left: 0;
             }
         }
@@ -57,6 +58,7 @@ $tablet-card-height: 325px;
             }
 
             @media (max-width: 1024px) and (max-height: 768px) {
+                width: 630px;
                 top: 80%;
             }
            
@@ -126,6 +128,17 @@ $tablet-card-height: 325px;
 
                     &.active {            
                         flex-basis: calc($tablet-card-width * 2);
+                    }
+                }
+
+                @media (max-width: 1024px) and (max-height: 768px) {
+                    aui-card {
+                        width: calc($tablet-card-width - 50px); // 175px
+                        height: calc($tablet-card-height - 35px); // 290px;
+                    }
+
+                    &.active {            
+                        flex-basis: calc(($tablet-card-width - 50px) * 2);
                     }
                 }
 
